@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lnieto-m <lnieto-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:55:31 by lnieto-m          #+#    #+#             */
-/*   Updated: 2016/01/26 18:21:45 by lnieto-m         ###   ########.fr       */
+/*   Updated: 2020/04/25 15:26:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	e.data_img = (int *)mlx_get_data_addr(e.img, &e.bpp, &e.x, &e.end);
 	mlx_hook(e.win, 3, (1L << 1), key_r, &e);
-	mlx_hook(e.win, 6, (1L << 7), pointer_motion, &e);
+	mlx_hook(e.win, 6, (1L << 6), pointer_motion, &e);
 	mlx_mouse_hook(e.win, mouse_hook, &e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_loop_hook(e.mlx, loop_hook, &e);
