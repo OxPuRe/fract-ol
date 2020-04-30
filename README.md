@@ -9,10 +9,10 @@ The minilibx must be installed on your device.
 make && ./fractol [mandelbrot / julia / burning_ship]
 ```
 Mandelbrot :
-![mandelbrot](https://raw.githubusercontent.com/lnieto-m/fractol/master/screenshots/Mandelbrot.png)
+![mandelbrot](https://raw.githubusercontent.com/auverneu/fractol/master/screenshots/Mandelbrot.png)
 
 Julia :
-![mandelbrot](https://raw.githubusercontent.com/lnieto-m/fractol/master/screenshots/Julia.png)
+![mandelbrot](https://raw.githubusercontent.com/auverneu/fractol/master/screenshots/Julia.png)
 
 Burning Ship :
-![mandelbrot](https://raw.githubusercontent.com/lnieto-m/fractol/master/screenshots/Burning_Ship.png)
+![mandelbrot](https://raw.githubusercontent.com/auverneu/fractol/master/screenshots/Burning_Ship.png)
