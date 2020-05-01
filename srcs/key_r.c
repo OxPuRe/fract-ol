@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_r.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: auverneu <auverneu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/08 14:58:55 by lnieto-m          #+#    #+#             */
-/*   Updated: 2020/04/24 16:11:23 by user42           ###   ########.fr       */
+/*   Created: 2016/01/08 14:58:55 by auverneu          #+#    #+#             */
+/*   Updated: 2020/04/24 16:11:23 by auverneu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ int			key_r(int keycode, t_env *e)
 		expose_hook(e);
 	}
 	inter(keycode, e);
-	ft_putnbr(keycode);
-	ft_putchar('\n');
-	ft_putnbr(KEY_ESC);
-	ft_putchar('\n');
 	if (keycode == KEY_ESC)
 	{
 		free(e->fractale);
