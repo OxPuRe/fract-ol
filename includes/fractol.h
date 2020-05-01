@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:55:53 by lnieto-m          #+#    #+#             */
-/*   Updated: 2020/04/24 16:10:58 by user42           ###   ########.fr       */
+/*   Updated: 2020/05/01 22:06:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ typedef struct		s_env
 	int				*data_img;
 	int				bpp;
 	int				end;
-	int				x;
+	int				x;			// taille de l'ecran en X
 	int				x_min;
-	int				y;
+	int				y;			// taille de l'ecran en Y
 	int				y_min;
 	int				a;
 	int				b;
 	int				iteration;
-	int				it;
+	int				it;			// TO RENAME: Boolean, Julia bloqué ou pas
 	int				mem_a;
 	int				mem_b;
-	double			c_x;
-	double			c_y;
+	double			c_x;		// coordonées du point en train d'etre calculé
+	double			c_y;		// coordonées du point en train d'etre calculé
 	char			*fractale;
-	t_coords		b_x;
-	t_coords		b_y;
+	t_coords		b_x;		// Limite de l'ensemble de la fractale sur l'axe X
+	t_coords		b_y;		// Limite de l'ensemble de la fractale sur l'axe Y
 }					t_env;
 
 typedef struct		s_point
