@@ -10,12 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang
-
-CFLAGS = -Wall -Wextra -Werror
-
 NAME = libft.a
-
+CC = clang
+INC_PATH = includes
+SRC_PATH = srcs
+OBJ_PATH = objs
 SRC_NAME = ft_isdigit.c \
 		   ft_memcmp.c \
 		   ft_putchar_fd.c \
@@ -74,28 +73,47 @@ SRC_NAME = ft_isdigit.c \
 		   ft_lstnew.c \
 		   ft_lstiter.c \
 		   ft_lstadd.c \
-		   get_next_line.c \
+		   get_next_line.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
+SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+CFLAGS = -Wall -Werror -Wextra
+CPPFLAGS = -I $(INC_PATH)
+
+.PHONY: re all norme clean fclean
+
+ifndef VERBOSE
+.SILENT:
+endif
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME)
-	ar rc $(NAME) $(OBJ_NAME)
-	ranlib $(NAME)
+$(NAME): $(OBJ)
+	@printf "\e[93m[Creating Libft]:\e[0m\n"
+	@printf "%s\n" $@
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I ./includes -c $<
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
+	@printf "%s\n" $@
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+$(OBJ_PATH):
+	@printf "\e[36;4m[Compiling Libft]:\e[0m\n"
+	mkdir -p $(OBJ_PATH)
 
 clean:
-	rm -rf $(OBJ_NAME)
+ifneq ($(wildcard $(OBJ)),)
+	@printf "\e[31;4m[Deleting objs Libft]:\e[0m\n"
+endif
+	@rm -f $(OBJ)
+	@rm -rvf $(OBJ_PATH)
 
 fclean: clean
-	rm -rf $(NAME)
+ifneq ($(wildcard $(NAME)),)
+	@printf "\e[31;4m[Deleting libft.a]:\e[0m\n"
+endif
+	@rm -fv $(NAME)
 
 re: fclean all
-
-norme:
-	norminette $(SRC_NAME)
-
-.PHONY: clean fclean re

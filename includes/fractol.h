@@ -3,15 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: auverneu <auverneu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
-/*   Created: 2016/01/07 16:55:53 by lnieto-m          #+#    #+#             */
-/*   Updated: 2020/05/01 22:06:23 by user42           ###   ########.fr       */
-=======
 /*   Created: 2016/01/07 16:55:53 by auverneu          #+#    #+#             */
-/*   Updated: 2020/04/24 16:10:58 by user42           ###   ########.fr       */
->>>>>>> 0f0aaa392645761e21e8742b9221d0f436c1a908
+/*   Updated: 2020/04/24 16:10:58 by auverneu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +39,14 @@ typedef struct		s_env
 	int				*data_img;
 	int				bpp;
 	int				end;
-	int				x;			// taille de l'ecran en X
+	int				x;			// screen size x
 	int				x_min;
-	int				y;			// taille de l'ecran en Y
+	int				y;			// screen size y
 	int				y_min;
 	int				a;
 	int				b;
 	int				iteration;
-	int				it;			// TO RENAME: Boolean, Julia bloqué ou pas
+	int				it;			// bool to freeze Julia
 	int				mem_a;
 	int				mem_b;
 	double			c_x;		// coordonées du point en train d'etre calculé
