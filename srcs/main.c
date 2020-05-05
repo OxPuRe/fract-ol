@@ -12,12 +12,18 @@
 
 #include "fractol.h"
 
+int				rgb(double r, double g, double b)
+{
+	int			color;
+
+	color = 256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b);
+	return (color);
+}
+
 static void		def(t_env *e, char *av)
 {
 	e->x = 900;
 	e->y = 600;
-	e->x_min = 0;
-	e->y_min = 0;
 	e->end = 1;
 	e->bpp = 8;
 	e->c_x = 0;
@@ -30,8 +36,6 @@ static void		def(t_env *e, char *av)
 		e->iteration = 50;
 	else
 		e->iteration = 20;
-	e->a = 0;
-	e->b = 0;
 	e->b_x.x = -2.4;
 	e->b_x.y = 2.4;
 	e->b_y.x = -1.5;

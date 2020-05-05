@@ -54,7 +54,7 @@ void		julia(t_env *e)
 			z.x = e->b_x.x + (e->b_x.y - e->b_x.x) / e->x * 4 * coord.x;
 			z.y = e->b_y.x + (e->b_y.y - e->b_y.x) / e->y * coord.y;
 			a = iter(e, z);
-			color = RGB(n * (cos(a) + 1), n * (sin(a) + 1), n * (1 - cos(a)));
+			color = rgb(n * (cos(a) + 1), n * (sin(a) + 1), n * (1 - cos(a)));
 			image_pixel_put(e, coord, color);
 		}
 		coord.y = 0;

@@ -90,30 +90,30 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@printf "\e[93m[Creating Libft]:\e[0m\n"
-	@printf "%s\n" $@
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	printf "\e[93m[Creating Libft]:\e[0m\n"
+	printf "%s\n" $@
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
-	@printf "%s\n" $@
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	printf "%s\n" $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(OBJ_PATH):
-	@printf "\e[36;4m[Compiling Libft]:\e[0m\n"
+	printf "\e[36;4m[Compiling Libft]:\e[0m\n"
 	mkdir -p $(OBJ_PATH)
 
 clean:
 ifneq ($(wildcard $(OBJ)),)
-	@printf "\e[31;4m[Deleting objs Libft]:\e[0m\n"
+	printf "\e[31;4m[Deleting objs Libft]:\e[0m\n"
 endif
-	@rm -f $(OBJ)
-	@rm -rvf $(OBJ_PATH)
+	rm -f $(OBJ)
+	rm -rvf $(OBJ_PATH)
 
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
-	@printf "\e[31;4m[Deleting libft.a]:\e[0m\n"
+	printf "\e[31;4m[Deleting libft.a]:\e[0m\n"
 endif
-	@rm -fv $(NAME)
+	rm -fv $(NAME)
 
 re: fclean all

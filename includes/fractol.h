@@ -18,7 +18,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft.h"
-# define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 # define KEY_ESC 65307
 # define KEY_O 111
 # define KEY_P 112
@@ -31,6 +30,16 @@ typedef struct		s_coords
 	double			y;
 }					t_coords;
 
+/*
+**	int			x;		screen size x
+**	int			y;		screen size y
+**	int			it;		bool to freeze Julia
+**	double		c_x;	x point being calculated
+**	double		c_y;	y point being calculated
+**	t_coords	b_x;	Fractal x limit
+**	t_coords	b_y;	Fractal y limit
+*/
+
 typedef struct		s_env
 {
 	void			*mlx;
@@ -39,21 +48,17 @@ typedef struct		s_env
 	int				*data_img;
 	int				bpp;
 	int				end;
-	int				x;			// screen size x
-	int				x_min;
-	int				y;			// screen size y
-	int				y_min;
-	int				a;
-	int				b;
+	int				x;
+	int				y;
 	int				iteration;
-	int				it;			// bool to freeze Julia
+	int				it;
 	int				mem_a;
 	int				mem_b;
-	double			c_x;		// coordonées du point en train d'etre calculé
-	double			c_y;		// coordonées du point en train d'etre calculé
+	double			c_x;
+	double			c_y;
 	char			*fractale;
-	t_coords		b_x;		// Limite de l'ensemble de la fractale sur l'axe X
-	t_coords		b_y;		// Limite de l'ensemble de la fractale sur l'axe Y
+	t_coords		b_x;
+	t_coords		b_y;
 }					t_env;
 
 typedef struct		s_point
@@ -71,5 +76,6 @@ void				mandelbrot(t_env *e);
 void				julia(t_env *e);
 void				burning_ship(t_env *e);
 int					loop_hook(t_env *e);
+int					rgb(double r, double g, double b);
 
 #endif

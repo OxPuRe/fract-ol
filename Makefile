@@ -48,34 +48,34 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@printf "\e[36;4m[Compiling Minilibx-linux]:\e[0m\n"
-	@make -C minilibx-linux/
-	@make -C libft/
-	@printf "\e[92m[Linking Fract-ol]:\e[0m\n"
-	@printf "%s\n" $@
-	@$(CC) -o $(NAME) $(OBJ) -L./libft -lft -L/usr/local/lib/ -lm -L./minilibx-linux -lmlx -lXext -lX11 -lbsd
+	printf "\e[36;4m[Compiling Minilibx-linux]:\e[0m\n"
+	make -C minilibx-linux/
+	make -C libft/
+	printf "\e[92m[Linking Fract-ol]:\e[0m\n"
+	printf "%s\n" $@
+	$(CC) -o $(NAME) $(OBJ) -L./libft -lft -L/usr/local/lib/ -lm -L./minilibx-linux -lmlx -lXext -lX11 -lbsd
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
-	@printf "%s\n" $@
-	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	printf "%s\n" $@
+	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 $(OBJ_PATH):
-	@printf "\e[36;4m[Compiling Fract-ol]:\e[0m\n"
-	@mkdir -p $(OBJ_PATH)
+	printf "\e[36;4m[Compiling Fract-ol]:\e[0m\n"
+	mkdir -p $(OBJ_PATH)
 
 clean:
 ifneq ($(wildcard $(OBJ)),)
 	printf "\e[31;4m[Deleting objs Fract-ol]:\e[0m\n"
 endif
-	@rm -f $(OBJ)
-	@rm -rvf $(OBJ_PATH)
-	@make -C libft/ clean
+	rm -f $(OBJ)
+	rm -rvf $(OBJ_PATH)
+	make -C libft/ clean
 
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
-	@printf "\e[31;4m[Deleting Fract-ol]:\e[0m\n"
+	printf "\e[31;4m[Deleting Fract-ol]:\e[0m\n"
 endif
-	@rm -fv $(NAME)
-	@make -C libft/ fclean
+	rm -fv $(NAME)
+	make -C libft/ fclean
 
 re: fclean all
