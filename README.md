@@ -6,3 +6,5 @@
 ```
 make && ./fractol [mandelbrot / julia / burning_ship]
 ```
+
+![Screenshot](screenshots/Julia.png)
